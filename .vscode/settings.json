@@ -1,5 +1,6 @@
 {
-    // somehow this is needed to avoid errors in cv2.imshow
-    // "python.linting.pylintArgs": ["--generate-members"]
-    "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"]
+    // somehow pylint shows errors in usage of cv2, np
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.enabled": true
 }

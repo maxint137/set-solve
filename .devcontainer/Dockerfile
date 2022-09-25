@@ -16,6 +16,15 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
+RUN apt-get update \
+    && apt-get -y install --no-install-recommends ffmpeg libsm6 libxext6
+    # && apt-get -y install --no-install-recommends libgl1
+# https://stackoverflow.com/a/63377623/494308
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
+
+# ENV QT_X11_NO_MITSHM=1
+# ENV DISPLAY :0
+ENV DISPLAY docker.for.mac.host.internal:0
